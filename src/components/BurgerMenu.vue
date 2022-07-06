@@ -13,6 +13,7 @@
       <li><a href="#!">Фото и видео</a></li>
       <li><a href="#!">Карта штата</a></li>
       <li><a href="#!">Гостиницы</a></li>
+      <li><a href="#!">Гостиницы</a></li>
     </ul>
   </div>
 </template>
