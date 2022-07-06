@@ -1,0 +1,34 @@
+@import url(./_nullStyle.scss);
+@import url(./_variables.scss);
+
+
+body{
+    text-transform: uppercase;
+    background: $bcmain;
+    color: $colormainSmall;
+  height: 100%;
+  line-height: 1;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: PT Sans;
+}
+
+._container{
+    max-width: 1500px;
+    padding: 0px 15px;
+    margin: 0px auto;
+    box-sizing: border-box;
+    background-color: $colormainWhite;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.089), 0px 4px 4px rgba(0, 0, 0, 0.171);
+}
+._ibg {
+    position: relative;
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+    }
+  }
