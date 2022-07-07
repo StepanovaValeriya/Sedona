@@ -21,33 +21,34 @@
             <a class="menu__link" href="#">Гостиницы</a>
           </li>
         </ul>
-        <BurgerMenu></BurgerMenu>
+        <Sidenav></Sidenav>
       </nav>
     </div>
   </header>
 </template>
 
 <script>
-import BurgerMenu from '../components/BurgerMenu.vue';
+import Sidenav from '../components/Sidenav.vue';
 export default {
+  name: 'header',
   data() {
     return {};
   },
   components: {
-    BurgerMenu,
+    Sidenav,
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .header__container {
-  // height: 56px;
+  height: 56px;
 }
 .menu {
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 26px;
-  color: $colormainBig;
+  background-color: $colormainWhite;
+  box-shadow: none;
+  height: 0%;
+
   &__list {
     display: flex;
     justify-content: space-around;
@@ -77,6 +78,10 @@ export default {
     }
   }
   &__link {
+    color: $colormainBig;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 26px;
     img {
       position: absolute;
       top: 0;

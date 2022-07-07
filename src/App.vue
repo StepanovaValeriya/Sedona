@@ -17,6 +17,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import 'materialize-css/dist/css/materialize.min.css';
 .wrapper {
   min-height: 100%;
   overflow: hidden;

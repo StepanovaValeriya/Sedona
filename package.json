@@ -13,7 +13,8 @@
     "materialize-css": "^1.0.0-rc.2",
     "node-sass": "^7.0.1",
     "vue": "^3.2.37",
-    "vue-router": "^4.0.16"
+    "vue-router": "^4.0.16",
+    "vue-sidebar-menu": "^5.2.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.3",
