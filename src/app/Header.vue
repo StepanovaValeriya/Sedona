@@ -62,17 +62,7 @@ export default {
     @include breakpoint(lg) {
       padding: 15px 5px;
     }
-    &:hover {
-      color: $hoverColor;
-    }
-    &:active {
-      color: $activeColor;
-      opacity: 0.3;
-      mix-blend-mode: normal;
-    }
-    &:checked {
-      color: $checkedColor;
-    }
+
     @include breakpoint(md) {
       display: none;
     }
@@ -82,6 +72,17 @@ export default {
     font-weight: 700;
     font-size: 14px;
     line-height: 26px;
+    &:hover {
+      color: $hoverColor;
+      background-color: transparent;
+    }
+    &:active {
+      color: $activeColor;
+      @include active;
+    }
+    &:checked {
+      color: $checkedColor;
+    }
     img {
       position: absolute;
       top: 0;

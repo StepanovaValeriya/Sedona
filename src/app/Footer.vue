@@ -6,21 +6,17 @@
         <span>+7 800 555-86-28</span>
       </div>
       <ul class="footer__social social">
-        <li class="social__item">
-          <a class="social__link" href="#"
-            ><img src="../assets/img/footer/fb.png" alt="fb"
-          /></a>
-        </li>
-        <li class="social__item">
-          <a class="social__link" href="#"
-            ><img src="../assets/img/footer/twitter.png" alt="twitter"
-          /></a>
-        </li>
-        <li class="social__item">
-          <a class="social__link" href="#"
-            ><img src="../assets/img/footer/youtube.png" alt="youtube"
-          /></a>
-        </li>
+        <router-link
+          :key="icon"
+          v-for="icon in socialIcons"
+          class="social__item"
+          to="/"
+          ><img
+            @click="modal($event)"
+            :src="getURLSocial(icon.url)"
+            :alt="icon.alt"
+          />
+        </router-link>
       </ul>
       <div class="footer__info">
         <span>website by</span>
@@ -28,6 +24,30 @@
     </div>
   </footer>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      socialIcons: [
+        { url: 'fb.png', alt: 'Facebook.com' },
+        { url: 'twitter.png', alt: 'Twitter.com' },
+        { url: 'youtube.png', alt: 'YouTube.com' },
+      ],
+      altSocial: '',
+    };
+  },
+  methods: {
+    getURLSocial(icon) {
+      return new URL('../assets/img/footer/' + icon, import.meta.url).href;
+    },
+    modal(event) {
+      this.altSocial = event.target.alt;
+      this.$emit('modal', this.altSocial);
+    },
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 .footer {
@@ -67,11 +87,11 @@
 .social {
   display: flex;
   gap: 6px;
-
-  &__item {
-  }
-
-  &__link {
+  img {
+    cursor: pointer;
+    &:hover {
+      box-shadow: $shadow;
+    }
   }
 }
 </style>
