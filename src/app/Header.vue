@@ -87,6 +87,7 @@ export default {
       position: absolute;
       top: 0;
       left: 45%;
+      z-index: 99;
     }
   }
 }

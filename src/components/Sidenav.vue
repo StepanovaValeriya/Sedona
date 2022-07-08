@@ -49,6 +49,12 @@ export default {
   color: #039be5;
 }
 .logo {
-  float: right;
+  position: absolute;
+  right: 10px;
+
+  z-index: 99;
+}
+.sidenav-trigger {
+  height: 0;
 }
 </style>

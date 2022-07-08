@@ -98,6 +98,13 @@ export default {
     background-color: $bcButtonDark;
     padding: 20px;
     font-size: 20px;
+    &:hover {
+      background-color: $buttonHoverDark;
+    }
+    &:active {
+      @include active;
+      background-color: $buttonActiveDark;
+    }
   }
 }
 </style>
