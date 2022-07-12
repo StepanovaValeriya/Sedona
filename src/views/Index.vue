@@ -1,14 +1,14 @@
 <template>
-  <div>
-    <Main></Main>
-  </div>
+  <Main></Main>
+  <FeaturesTest></FeaturesTest>
 </template>
 
 <script>
 import Main from '../components/Main.vue';
+import FeaturesTest from '../components/FeaturesTest.vue';
 
 export default {
   name: 'index',
-  components: { Main },
+  components: { Main, FeaturesTest },
 };
 </script>
