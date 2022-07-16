@@ -1,14 +1,16 @@
 <template>
   <Main></Main>
-  <FeaturesTest></FeaturesTest>
+  <Features></Features>
+  <ButtonSearch></ButtonSearch>
 </template>
 
 <script>
 import Main from '../components/Main.vue';
-import FeaturesTest from '../components/FeaturesTest.vue';
+import Features from '../components/Features.vue';
+import ButtonSearch from '../components/ButtonSearch.vue'
 
 export default {
   name: 'index',
-  components: { Main, FeaturesTest },
+  components: { Main, Features, ButtonSearch },
 };
 </script>

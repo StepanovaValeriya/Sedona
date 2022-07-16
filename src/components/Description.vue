@@ -43,5 +43,5 @@ export default {
       return new URL('../assets/img/features/' + img, import.meta.url).href;
     },
   },
-};
+}
 </script>

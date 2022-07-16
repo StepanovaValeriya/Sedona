@@ -58,9 +58,6 @@ export default {
     display: table-cell;
     vertical-align: middle;
   }
-
-  &__window {
-  }
 }
 .footer {
   &__leave {

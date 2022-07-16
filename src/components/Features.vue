@@ -2,8 +2,8 @@
   <section class="page__features features">
     <div class="features__container _container">
       <div class="features__cards card">
-        <div class="card__main">
-          <div class="card__main__content">
+        <div class="card__main card__main_blue">
+          <div class="card__item">
             <h2 class="card__title">
               Настоящий <br />
               городок
@@ -18,9 +18,10 @@
             <img src="../assets/img/features/city.jpg" alt="city" />
           </div>
         </div>
+        <Description></Description>
 
-        <div class="card__main">
-          <div class="card__main__content">
+        <div class="card__main card__main_blue">
+          <div class="card__item">
             <h2 class="card__title">
               Там есть <br />
               Мост дьявола
@@ -35,39 +36,11 @@
             <img src="../assets/img/features/devilbridge.jpg" alt="bridge" />
           </div>
         </div>
-        <div class="card__advantages card__advantages_grey">
-          <div class="card__advantages__item">
-            <h2 class="card__title">
-              Небольшая <br />
-              площадь
-            </h2>
-            <span class="card__number">№3</span>
-            <p class="card__text">
-              Все достопримечательности <br />
-              находятся очень близко
-            </p>
-          </div>
-          <div class="card__advantages__item">
-            <h2 class="card__title">
-              Красивая <br />
-              дорога
-            </h2>
-            <span class="card__number">№4</span>
-            <p class="card__text">
-              Ехать в седону из лас-вегаса совсем <br />
-              не скучно!
-            </p>
-          </div>
-          <div class="card__advantages__item">
-            <h2 class="card__title">
-              Мало <br />
-              туристов
-            </h2>
-            <span class="card__number">№5</span>
-            <p class="card__text">
-              Большинство едет в гранд каньон <br />
-              и толпится там
-            </p>
+        <div class="card__main card__main_grey">
+          <div class="card__item" v-for="item in cardItem" :key="item.title">
+            <h2 class="card__title" v-html="item.title"></h2>
+            <span class="card__number">№{{ item.number }}</span>
+            <p class="card__text" v-html="item.text"></p>
           </div>
         </div>
       </div>
@@ -80,41 +53,49 @@ import Description from './Description.vue';
 export default {
   name: 'features',
   data() {
-    return {};
+    return {
+      cardItem: [
+        {
+          title: 'Небольшая <br/> площадь',
+          number: '3',
+          text: 'Все достопримечательности <br /> находятся очень близко',
+        },
+        {
+          title: ' Красивая <br /> дорога',
+          number: '4',
+          text: 'Ехать в седону из лас-вегаса совсем <br /> не скучно!',
+        },
+        {
+          title: ' Мало <br /> туристов',
+          number: '5',
+          text: '  Большинство едет в гранд каньон <br /> и толпится там',
+        },
+      ],
+    };
   },
   components: { Description },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .card {
   box-shadow: none;
   margin: 0;
   line-height: 21px;
-  &__title {
-    font-weight: 700;
-    font-size: 21px;
-  }
-  &__number {
-    &::before,
-    &::after {
-      content: '-';
-      margin: 0 4px;
-    }
-  }
+
   &__main {
     display: flex;
-    &__content {
-      flex: 0 0 30%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      justify-content: center;
-      gap: 25px;
+    justify-content: center;
+     @include breakpoint(md) {
+      flex-wrap: wrap;
+    }
+
+    &_blue {
       background-color: $bcBlue;
       color: $colormainWhite;
-      padding: 47px 15px 54px 15px;
+    }
+    &_grey {
+      background-color: #eeeeee;
     }
     &__image {
       flex: 1 1 auto;
@@ -125,24 +106,41 @@ export default {
       }
     }
   }
-  &__advantages {
+  &__item {
+    flex: 0 0 33%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     justify-content: center;
-    padding: 61px 15px 82px 15px;
-    &_grey {
-      background-color: #eeeeee;
+    gap: 25px;
+    padding: 47px 15px 54px 15px;
+    @include breakpoint(md) {
+      flex: 1 1 50%;
+   
     }
-    &__item {
-      flex: 0 0 35%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      justify-content: center;
-      gap: 25px;
-      img {
-        order: -1;
-      }
+     @include breakpoint(sm) {
+      flex: 1 1 100%;
+      padding: 20px 15px;
+   
+    }
+    img {
+      order: -1;
+    }
+  }
+  &__title {
+    font-weight: 700;
+    font-size: 21px;
+      @include breakpoint(sm) {
+    font-size: 16px;
+   
+    }
+  }
+  &__number {
+    &::before,
+    &::after {
+      content: '-';
+      margin: 0 4px;
     }
   }
 }
